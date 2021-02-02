@@ -1,1 +1,5 @@
-.config/x11/xprofile
+#!/bin/bash
+nitrogen --restore &
+xbanish &
+setxkbmap -option caps:escape &
+

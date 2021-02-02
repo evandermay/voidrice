@@ -1,1 +1,6 @@
-.config/x11/xinitrc
+nitrogen --restore &
+xbanish &
+dunst &
+xclip &
+slstatus &    
+exec dwm 
