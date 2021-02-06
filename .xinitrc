@@ -1,4 +1,4 @@
-nitrogen --restore &
+setbg &
 xbanish &
 dunst &
 xclip &
