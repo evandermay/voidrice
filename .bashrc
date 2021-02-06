@@ -1,5 +1,5 @@
 ### EXPORT
-export TERM="xterm-256color"              # getting proper colors
+export TERM="st"              # getting proper colors
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
@@ -68,7 +68,7 @@ ex ()
       *.7z)        7z x $1      ;;
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;      
+      *.tar.zst)   unzstd $1    ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -82,7 +82,7 @@ ex ()
 alias doas="doas --"
 
 # navigation
-alias ..='cd ..' 
+alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -90,7 +90,7 @@ alias .5='cd ../../../../..'
 
 alias vim="nvim"
 # pacman and yay
-alias pacsyu='sudo pacman -Syu'              
+alias pacsyu='sudo pacman -Syu'
 alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
 alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock

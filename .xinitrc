@@ -2,5 +2,7 @@ nitrogen --restore &
 xbanish &
 dunst &
 xclip &
-slstatus &    
-exec dwm 
+slstatus &
+xmodmap .Xmodmap
+.screenlayout/layout.sh
+exec dwm
