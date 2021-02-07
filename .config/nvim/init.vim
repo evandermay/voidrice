@@ -17,6 +17,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 call plug#end()
 
 set title
