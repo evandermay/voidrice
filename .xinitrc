@@ -1,9 +1,11 @@
 /usr/bin/prime-offload &
 setbg &
 xbanish &
+xcompmgr &
 dunst &
 xclip &
-slstatus &
+dwmblocks &
 xmodmap .Xmodmap
 .screenlayout/layout.sh
-exec dwm
+exec dwm &&
+/usr/bin/prime-switch
