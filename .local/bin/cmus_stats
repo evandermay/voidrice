@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export IDENTIFIER="unicode"
+
 cmus_stats () {
     if ps -C cmus > /dev/null; then
         POSITION=$(cmus-remote -Q | grep -a '^position' | awk '{gsub("position ", "");print}')

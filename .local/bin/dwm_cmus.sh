@@ -4,7 +4,9 @@
 # Joe Standring <git@joestandring.com>
 # GNU GPLv3
 
-# Dependencies: cmus zscroll
+# Dependencies: cmus 
+
+export IDENTIFIER="unicode"
 
 dwm_cmus () {
     if ps -C cmus > /dev/null; then
