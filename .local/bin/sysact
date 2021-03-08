@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # A dmenu wrapper script for system functions.
 
@@ -9,14 +9,13 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 cmds="\
-🔒 lock		betterlockscreen -l -b 
-🔒 lock and Suspend	betterlockscreen -s -b 
-🚪 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
-♻ renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
-🐻 hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
-🔃 reboot	${reb:-sudo -A reboot}
-🖥 shutdown	${shut:-sudo -A shutdown -h now}"
+ lock		betterlockscreen -l -b
+ lock and Suspend	betterlockscreen -s -b
+ leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
+ hibernate	betterlockscreen -l ${hib:-systemctl suspend-then-hibernate -i}
+ reboot	${reb:-sudo -A reboot}
+ shutdown	${shut:-sudo -A shutdown -h now}"
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
+ choice="$(echo "$cmds" | cut -d'	' -f 1 | "dmenu" "-c" "-l" "20" "-bw" "2")"  || exit 1
 
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
