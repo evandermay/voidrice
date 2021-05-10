@@ -1,11 +1,13 @@
-/usr/bin/prime-offload &
-setbg &
 xbanish &
 xcompmgr &
 dunst &
 xclip &
+./pulse-volume-watcher.py | xob &
 dwmblocks &
 xmodmap .Xmodmap
+setbg
+xrdb .Xresources
 .screenlayout/layout.sh
-exec dwm &&
-/usr/bin/prime-switch
+/usr/bin/prime-offload
+exec spectrwm
+sudo /usr/bin/prime-switch/
