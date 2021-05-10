@@ -7,9 +7,10 @@
 # My fish config. Not much to see here; just some pretty standard stuff.
 
 ### EXPORT ###
+set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 set fish_greeting                      # Supresses fish's intro message
-set TERM "xterm-256color"              # Sets the terminal type
+set TERM "st"              # Sets the terminal type
 set EDITOR "emacsclient -t -a ''"      # $EDITOR use Emacs in terminal
 set VISUAL "emacsclient -c -a emacs"   # $VISUAL use Emacs in GUI mode
 
@@ -175,8 +176,6 @@ end
 
 
 ### ALIASES ###
-# spark aliases
-alias clear='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # root privileges
 alias doas="doas --"
@@ -283,11 +282,6 @@ alias tb="nc termbin.com 9999"
 
 # Unlock LBRY tips
 alias tips="lbrynet txo spend --type=support --is_not_my_input --blocking"
-
-# force all kakoune windows into one session
-alias kak="/usr/bin/kak -c mysession"
-alias kaks="/usr/bin/kak -s mysession"
-alias kakd="/usr/bin/kak -d -s mysession &"
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
