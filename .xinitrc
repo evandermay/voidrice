@@ -2,7 +2,7 @@ xbanish &
 xcompmgr &
 dunst &
 xclip &
-./pulse-volume-watcher.py | xob &
+.local/bin/pulse-volume-watcher.py | xob &
 dwmblocks &
 xmodmap .Xmodmap
 setbg
