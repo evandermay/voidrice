@@ -37,7 +37,7 @@ cpu() {
 	        read cpu a b c idle rest < /proc/stat
 		  total=$((a+b+c+idle))
 		    cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-		      echo -e "  $cpu%"
+		      echo -e "$cpu%"
 	      }
 ##############################
 #	    VOLUME
@@ -60,8 +60,8 @@ pkgs() {
 ##############################
 
 upgrades() {
-	upgrades="$(aptitude search '~U' | wc -l)"
-	echo -e " $upgrades"
+	upgrades="$(pacman -Qu)"
+	echo -e " $upgrades |"
 }
 ##############################
 #	    VPN
@@ -84,8 +84,8 @@ weather() {
 
 ## TEMP
 temp() {
-	tmp="$(grep temp_F ~/.config/weather.txt | awk '{print $2}' | sed 's/"//g' | sed 's/,/ F/g')"
-	echo " $tmp"
+	tmp="$(~/.local/bin/temp)"
+	echo "$tmp"
 }
 
 ## BATTERY
@@ -93,7 +93,7 @@ bat() {
 batstat="$(cat /sys/class/power_supply/BAT0/status)"
 battery="$(cat /sys/class/power_supply/BAT0/capacity)"
     if [ $batstat = 'Unknown' ]; then
-    batstat=""
+    batstat=""
     elif [[ $battery -ge 5 ]] && [[ $battery -le 19 ]]; then
     batstat="*_____"
     elif [[ $battery -ge 20 ]] && [[ $battery -le 39 ]]; then
@@ -111,6 +111,10 @@ fi
 echo "$batstat $battery %"
 }
 
+optimus() {
+    optimus="$(optimus-manager --print-mode)"
+    echo "$optimus"
+}
 network() {
 wire="$(ip a | grep eth0 | grep inet | wc -l)"
 wifi="$(ip a | grep wlan | grep inet | wc -l)"
@@ -127,6 +131,6 @@ fi
       SLEEP_SEC=2
       #loops forever outputting a line every SLEEP_SEC secs
       while :; do     
-    echo "CPU:$(cpu)|RAM: $(mem)|Upgrades:$(upgrades)|Bat:$(bat)| $(temp)|"
+          echo "+@fg=1; CPU:$(cpu)+@fg=0;|+@fg=2;RAM:$(mem)+@fg=0;|+@fg=3;Bat:$(bat)|+@fg=4;$(temp)+@fg=0;|"
 		sleep $SLEEP_SEC
 		done
